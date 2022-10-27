@@ -7,4 +7,5 @@ player_2 = Player.new("Player 2")
 pp "Welcome #{player_1} and #{player_2}! #{player_1}, you're up first!"
 
 game = Gameplay.new(player_1, player_2)
+game.startGame
 puts game.current_player.name

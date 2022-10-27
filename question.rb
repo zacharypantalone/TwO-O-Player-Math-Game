@@ -1,16 +1,11 @@
 class Question
+  attr_reader :answer, :num1, :num2, :question_prompt
 
   def initialize
-    answer = a.to_i + b.to_i
-    puts "What is #{a} + #{b}?"
-
-    if input != integer # how would I do this?
-
-    if input == answer
-      puts "That is correct!"
-    else
-      puts "Yikes! That's incorrect!"
-    end
+    @num1 = rand(1...10)
+    @num2 = rand(1...10)
+    @question_prompt = "What is #{@num1} + #{@num2}?"
+    @answer = @num1 + @num2
   end
-
+    
 end
