@@ -2,5 +2,7 @@ require './players'
 require './question'
 require './gameplay_logic'
 
-players = Players.new()
-players.player_1()
+player_1 = Player.new("Player 1")
+player_2 = Player.new("Player 2")
+
+puts player_1.name
