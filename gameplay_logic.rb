@@ -11,10 +11,10 @@ class Gameplay
   
   def startGame
     # we need to find something that we can trigger to break the loop
-    while @current_player.life > 0
-      
+    while @player1.life > 0 && @player2.life > 0
       nextTurn
       @question = Question.new
+      
     end
     puts "Game over, thanks for playing!"
   end
@@ -34,7 +34,7 @@ class Gameplay
     
     prompt = "#{@current_player.name} said #{@input}"
     puts prompt
-    if @input != 'int'
+    if !@input.is_a? Integer
         puts "Invalid input!"
     end
 
@@ -50,20 +50,14 @@ class Gameplay
   attr_reader :input
 
   def nextTurn
-    
-    if @player1.name == @current_player.name
-      puts @question.question_prompt
-      correctAnswer
-      if current_player.life == 0
-      # we want a trigger to set off with this condition is met, this trigger will break the while loop
+    puts @question.question_prompt
+    correctAnswer
+    if @current_player.name == @player1.name
       @current_player = @player2
     else
-      puts @question.question_prompt
-      correctAnswer
-      if current_player.life == 0
-      # we want a trigger to set off with this condition is met, this trigger will break the while loop
       @current_player = @player1
     end
+   
     
   end 
 end 

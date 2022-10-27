@@ -8,4 +8,4 @@ puts "Welcome #{player_1.name} and #{player_2.name}!\n#{player_1.name}, you're u
 
 game = Gameplay.new(player_1, player_2)
 game.startGame
-puts game.current_player.name
+puts "The winner is #{game.current_player.name}"
