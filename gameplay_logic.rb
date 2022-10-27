@@ -20,30 +20,35 @@ class Gameplay
   attr_reader :current_player 
 
   def correctAnswer
-
+    
     @input = gets.chomp.to_i
     
-    # if @input != 'int'
-    #     puts "Invalid input!"
+    prompt = "#{@current_player.name} said #{@input}"
+    puts prompt
+    if @input != 'int'
+        puts "Invalid input!"
+    end
 
     if @input == @question.answer
-        print "#{@answer} is correct!"
+        puts "#{@question.answer} is correct!"
       else
         puts "Yikes! That's incorrect!"
     end
   end
 
+  attr_reader :input
+
   def nextTurn
-    prompt = "#{@current_player.name} said #{@input}"
-    puts prompt
     
     if @player1.name == @current_player.name
       puts @question.question_prompt
       correctAnswer
       @current_player = @player2
-    else 
+    else
+      puts @question.question_prompt
+      correctAnswer 
       @current_player = @player1
     end
-    @question = Question.new
+    
   end 
-end
+end 
